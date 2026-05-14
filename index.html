@@ -27,11 +27,10 @@
         </div>
         <div class="arch-image">
           <img src="main_photo.jpg" alt="Wedding Photo" />
-          <!-- 흑백 사진 추천 -->
         </div>
       </section>
 
-      <!-- 3 & 4. 혼주 정보 & 인사말 -->
+      <!-- 3 & 4. 혼주 정보 -->
       <section class="family section-padding-double lighterbg">
         <div class="family-line">
           <p>
@@ -67,7 +66,6 @@
         <h2>2026.09.13</h2>
         <p class="msg">일요일 오후 3시</p>
         <div class="calendar-mock section-padding-half">
-          <!-- 달력 이미지를 넣거나 표 형태로 구현 -->
           <div
             class="calendar-container"
             style="
@@ -80,7 +78,6 @@
               ><span>W</span><span>T</span><span>F</span><span>S</span>
             </div>
             <div class="calendar-dates">
-              <!-- 12월 1일이 화요일이라면 앞에 공백 2개 -->
               <div class="empty"></div>
               <div class="empty"></div>
               <span>1</span><span>2</span><span>3</span><span>4</span
@@ -172,8 +169,8 @@
           <!-- 카카오톡 -->
           <div class="share-item">
             <button class="icon-btn kakao">
+                <!-- 카카오톡 아이콘 이미지 -->
               <i class="fa-solid fa-comment"></i>
-              <!-- 카카오톡 아이콘 이미지 -->
             </button>
             <span>KAKAO</span>
           </div>
@@ -181,8 +178,8 @@
           <!-- 링크 복사 -->
           <div class="share-item">
             <button class="icon-btn link">
+                <!-- 링크 아이콘 이미지 -->
               <i class="fa-solid fa-link"></i>
-              <!-- 링크 아이콘 이미지 -->
             </button>
             <span>LINK</span>
           </div>
@@ -190,8 +187,8 @@
           <!-- 기타 공유 (More) -->
           <div class="share-item">
             <button class="icon-btn more">
+                <!-- 공유 아이콘 이미지 -->
               <i class="fa-solid fa-arrow-up-from-bracket"></i>
-              <!-- 공유 아이콘 이미지 -->
             </button>
             <span>MORE</span>
           </div>
@@ -208,14 +205,14 @@
         const el = document.getElementById(id);
         el.style.display = el.style.display === "block" ? "none" : "block";
       }
-      // 2. 카카오 객체가 로드되었는지 반복적으로 확인하는 안전장치
+      // 2. 카카오 객체가 로드되었는지 반복적으로 확인
       function initMap() {
         if (typeof kakao !== "undefined" && kakao.maps) {
           // 카카오가 정의되었다면 로드 시작
           kakao.maps.load(function () {
             var container = document.getElementById("map");
             var options = {
-              center: new kakao.maps.LatLng(37.508628, 126.888765), // 실제 예식장 좌표로 수정!
+              center: new kakao.maps.LatLng(37.508628, 126.888765),
               level: 3,
             };
             var map = new kakao.maps.Map(container, options);
