@@ -36,6 +36,10 @@ body {
   overflow: hidden;
 }
 
+.section-top-padding {
+  padding-top: 30px;
+}
+
 .section-padding-half {
   padding: 40px 30px;
 }
@@ -125,29 +129,45 @@ body {
 .sun {
   color: #a64435;
 }
+
 .calendar-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr); /* 7열로 정렬 */
-  gap: 10px 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .calendar-dates {
   display: grid;
   grid-template-columns: repeat(7, 1fr); /* 7열로 정렬 */
-  gap: 15px 0;
+  gap: 30px 0;
   margin-bottom: 30px;
 }
 
-.selected {
-  background-color: #c79030;
-  color: white;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+.calendar-days span {
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+}
+
+/* 1. 모든 날짜(span)의 크기 고정 */
+.calendar-dates span {
+  width: 28px;         /* 원 크기랑 똑같이 */
+  height: 28px;
+  display: flex;       /* 숫자 중앙 정렬을 위해 필요 */
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;      /* 그리드 칸 안에서 중앙 배치 */
+  border-radius: 50%;  /* 모든 칸을 일단 원형 틀로 잡아둠 (색은 없음) */
+  box-sizing: border-box; /* 테두리 때문에 크기 변하는 것 방지 */
+}
+
+/* 2. 선택된 날짜에만 색깔 입히기 */
+.selected {
+  background-color: #c79030;
+  color: white;
+  /* 위에서 크기랑 정렬을 다 잡았으니 여기선 색상만 */
 }
 
 /* 6. 갤러리 그리드 */
@@ -224,6 +244,7 @@ body {
   color: #fff;
   border-radius: 5px;
   font-size: 15px;
+  cursor: pointer;
 }
 .acc-content {
   text-align: left;
@@ -233,6 +254,48 @@ body {
   font-size: 14px;
   border-radius: 5px;
   margin-bottom: 15px;
+}
+/* 1. 기본 상태: 평소엔 다른 계좌들처럼 숨겨져 있게! */
+.acc-content.copy-section-container {
+  display: none; /* 일단 숨김 */
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  gap: 10px;
+}
+
+/* 2. 열림 상태: 자바스크립트가 클래스를 붙이거나 style을 바꿀 때만 flex가 되도록! */
+/* 만약 toggleAcc 함수가 .show 같은 클래스를 붙이는 방식이라면: */
+.acc-content.copy-section-container.show {
+  display: flex !important;
+}
+
+/* 왼쪽 텍스트 그룹 정렬 */
+.copy-text-group {
+  display: flex;
+  flex-direction: column;         /* 예금주랑 계좌번호를 위아래로 */
+  align-items: flex-start;        /* 왼쪽 정렬 */
+  flex: 1;                        /* 남은 공간 다 차지하기 */
+}
+
+/* 오른쪽 복사 버튼 스타일 (사진이랑 비슷하게!) */
+.copy-button {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05); /* 살짝 비치는 배경 */
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* 은은한 테두리 */
+  border-radius: 8px;             /* 살짝 둥근 모서리 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-button:active {
+  transform: scale(0.95);         /* 눌렀을 때 살짝 작아지는 효과 */
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* 9. 공유 */
@@ -284,4 +347,93 @@ body {
   gap: 10px;
   padding-top: 60px;
   padding-bottom: 150px;
+}
+
+/* 1. 애니메이션 효과 정의 (투명도 0에서 1로) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 2. 이미지에 애니메이션 적용 */
+.top-image {
+    opacity: 0; /* 처음엔 안 보이게 */
+    animation: fadeIn 3s ease-out forwards; /* 2초 동안 실행 후 그 상태 유지 */
+    transform: translateX(0);
+}
+
+/* 1. 섹션 틀은 제자리에 고정 (스크롤 방지) */
+section {
+    opacity: 0;
+    transition: opacity 1.2s ease-out;
+}
+
+/* 2. 섹션 안의 모든 직계 자식들(div, img, p 등)만 살짝 내리기 */
+section > * {
+    transform: translateY(20px); 
+    transition: transform 1.2s ease-out;
+}
+
+/* 3. 보일 때: 섹션은 나타나고, 안쪽 요소는 제자리로! */
+section.visible {
+    opacity: 1;
+}
+
+section.visible > * {
+    transform: translateY(0);
+}
+
+/* ★ 추가: 1초 뒤에 나타나야 하는 요소 전용 설정 ★ */
+.delay-1s {
+    /* visible 클래스가 붙기 전에는 확실하게 투명하게 고정 */
+    opacity: 0 !important; 
+    transform: translateY(40px);
+}
+
+.visible .delay-1s {
+    /* 1.2초 동안 변하되, 1초를 기다렸다가(delay) 시작 */
+    transition: opacity 1.2s ease-out 1s, transform 1.2s ease-out 1s !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.toast {
+  visibility: hidden;
+  min-width: 300px;
+  background-color: #222;     /* 아주 어두운 회색 */
+  color: #fff;
+  text-align: center;
+  border-radius: 50px;        /* 아주 둥글게 */
+  padding: 12px 30px;         /* 좌우 여백을 더 줘서 길쭉하게 */
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;              /* 아이콘과 텍스트 가로 정렬 */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;                  /* 아이콘과 글자 사이 간격 */
+  opacity: 0;
+  transition: opacity 0.4s, bottom 0.4s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* 살짝 그림자 추가 */
+}
+
+/* 체크 아이콘 색상 (초록색) */
+.toast i.fa-check {
+  color: #2ecc71 !important;             /* 초록색 */
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 50px;
 }
