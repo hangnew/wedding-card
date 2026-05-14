@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>청첩장 머신</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <!-- [왼쪽] 에디터 구역 -->
+      <div class="editor-section">
+        <div style="border-bottom: 1px solid #ccc">
+          <h2 style="font-style: italic; font-size: 15px; padding-left: 10px">
+            Invitation Editor
+          </h2>
+          <p class="sub-title">새로운 청첩장 만들기</p>
+        </div>
+
+        <!-- Step 1. 메인 정보-->
+        <button class="editor-menu" id="btn-step1" onclick="showTab('sub-step1')">
+          <h1 style="font-size: 16px; font-style: italic">Step 1. 메인 정보</h1>
+          첫 장면을 고릅니다<br />
+        </button>
+
+        <div class="editor-submenu hide" id="sub-step1" style="padding-bottom: 30px">
+          <!-- Step 1-1. 메인 사진 업로드 -->
+          <p style="text-align: center; font-style: italic; font-size: 10px">
+            이 청첩장이 처음 열렸을 때, 어떤 느낌으로 기억되길 원하시나요?
+          </p>
+          <label class="headings">메인 사진 업로드</label>
+          <center>
+            <label for="mainphotoInput">
+              <div class="btn-upload">사진 업로드</div>
+            </label>
+          </center>
+          <input
+            style="display: none"
+            type="file"
+            id="mainphotoInput"
+            accept="image/*"
+            onchange="previewImage()"
+          />
+
+          <!-- Step 1-2. 레이아웃 -->
+          <label class="headings">레이아웃 (LAYOUT)</label>
+          <div style="display: flex; gap: 5px; margin-bottom: 20px" id="layoutBtns">
+            <button
+              onclick="changeLayout('photo,name,date', 0)"
+              id="btn-layoutUp"
+              class="layout-btn active-btn"
+              style="width: 23%; height: 50px;"
+            >
+              상단
+            </button>
+            <button
+              onclick="changeLayout('name,photo,date', 1)"
+              id="btn-layoutSep"
+              class="layout-btn"
+              style="width: 23%; height: 50px;"
+            >
+              분할
+            </button>
+            <button
+              id="btn-layoutBg"
+              class="layout-btn"
+              style="width: 23%; height: 50px;"
+            >
+              배경
+            </button>
+            <button
+              onclick="changeLayout('name,date,photo', 3)"
+              id="btn-layoutBottom"
+              class="layout-btn"
+              style="width: 23%; height: 50px;"
+            >
+              하단
+            </button>
+          </div>
+
+          <!-- Step 1-3. 본문 정렬 -->
+        <label class="headings">메인 정렬 (ALIGN)</label>
+           <div style="display: flex; gap: 5px; margin-bottom: 20px" id="alignBtns">
+            <button
+              onclick="changeAlign('left', 0)"
+              id="btn-contentLeft"
+              class="layout-btn"
+              style="width: 31%; height: 50px;"
+            >
+              왼쪽
+            </button>
+            <button
+              onclick="changeAlign('center', 1)"
+              id="btn-contentCenter"
+              class="layout-btn active-btn"
+              style="width: 31%; height: 50px;"
+            >
+              중앙
+            </button>
+            <button
+              onclick="changeAlign('right', 2)"
+              id="btn-contentRight"
+              class="layout-btn"
+              style="width: 31%; height: 50px;"
+            >
+              오른쪽
+            </button>
+            </div>
+        </div>
+
+              <!-- 핵심 정보 입력 -->
+        <button class="editor-menu" id="btn-step2" onclick="showTab('sub-step2')">
+          <h1 style="font-size: 16px; font-style: italic">Step 2. 핵심 정보 입력</h1>
+          예식 정보를 입력합니다.<br />
+        </button>
+            <div class="editor-submenu hide" id="sub-step2" style="padding-bottom: 30px">
+          <p style="font-style: italic; margin-left: 10px;">
+            타이틀 & 헤더 (Header)
+          </p>
+
+          <table style="margin-left: 10px;">
+            <tr> 
+                <td width="65%">
+                    <label style="font-size: 12px; font-style:bold;">메인 타이틀</label>
+                </td>
+                <td width="35%">
+                    <label style="text-align:right; font-size: 10px;">최대 2줄 권장 (엔터로 줄바꿈)</label>
+                </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea oninput="changeText('mainTitle', this.value)" name="mainTitleTxt" id="mainTitleTxt" rows="2" cols="40" style="border: 1px solid #ddd; font-size: 14px; padding: 10px; resize: none;" placeholder=" WEDDING DAY."></textarea>    
+                    </td>
+                </tr>
+          </table>
+                    <p style="font-style: italic; margin-left: 10px;">
+            신랑 & 신부 이름
+          </p>
+          <table style="margin-left:10px" width="390px">
+            <tr>
+                <td><label style="font-size: 12px">신랑</label></td>
+                <td><label style="font-size: 12px">신부</label></td>
+            </tr>
+            <tr>
+                <td><input id="groomName" oninput="changeName()" type="text" style="width: 90%; border: 1px solid #ddd; padding: 7px;"></td>
+                <td><input id="brideName" oninput="changeName()" type="text" style="width: 90%; border: 1px solid #ddd; padding: 7px;"></td>
+            </tr>
+
+            </table>
+
+            </div>
+
+
+
+
+      </div>
+
+
+
+
+
+      <!-- [오른쪽] 미리보기 구역 -->
+      <div class="preview-section">
+        <!-- 메인 사진  -->
+        <div class="phone" id="phone">
+          <div
+            id="item-photo"
+            class="layoutCenter"
+            style="
+              width: 240px;
+              height: 320px;
+              background: #eee;
+              margin: 0 auto;
+              margin-top: 20px;
+              align-items: center;
+              justify-content: center;
+              border-radius: 10px;
+              overflow: hidden;
+            "
+          >
+            <img
+              id="mainPhoto"
+              src="/twilight_bw.jpg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <!-- 신랑, 신부 이름    -->
+          <div id="item-name" class="fade-in layoutCenter"">
+            <p id="mainTitle" style="letter-spacing: 3px; font-size: 12px">WEDDING DAY.</p>
+            <p id="names" style="margin: 0px; font-size: 24px;">신랑 이름 & 신부 이름</p>
+          </div>
+          <!-- 신랑, 신부 이름    -->
+          <div id="item-date" class="fade-in layoutCenter" style="padding-top: 10px">
+            <label id="weddingDate" style="font-size: 12px">2026.12.31 오후 12시</label><br />
+            <label id="weddingVenue" style="font-size: 12px">예식장 이름</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

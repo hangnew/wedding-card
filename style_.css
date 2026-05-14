@@ -1,0 +1,106 @@
+/* 1. 화면 전체 고정 */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Gowun Batang", serif;
+      }
+
+      /* 2. 메인 컨테이너 (여기가 핵심!) */
+      .main-wrapper {
+        display: table;
+        width: 100%;
+        height: 100vh;
+        table-layout: fixed; /* 테이블 너비 고정 */
+      }
+
+      /* 3. 왼쪽 에디터 (가로 350px 고정) */
+      .editor-section {
+        display: table-cell;
+        width: 350px;
+        background-color: #f8f9fa;
+        vertical-align: top;
+        padding: 25px;
+        border-right: 1px solid #ddd;
+      }
+
+      /* 4. 오른쪽 프리뷰 (나머지 전체) */
+      .preview-section {
+        display: table-cell;
+        background-color: #555;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      /* 폰 프레임 디자인 */
+      .phone {
+        display: inline-block;
+        width: 360px;
+        height: 680px;
+        background: #fffaf5;
+        border-radius: 40px;
+        border: 12px solid #222;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+        text-align: center;
+      }
+
+      /* 탭 버튼 스타일 */
+      .tab-btn {
+        flex: 1;
+        padding: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+
+      /* 입력창 스타일 */
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 14px;
+        color: #333;
+      }
+
+      /* 아코디언 컨테이너 */
+      .accordion {
+        width: 90%;
+        margin: 20px auto;
+        border: 1px solid #e0d5c5;
+        border-radius: 5px;
+        background: #fff;
+      }
+
+      /* 제목 부분 (클릭하는 곳) */
+      .acc-header {
+        padding: 15px;
+        cursor: pointer;
+        background: #fdfaf7;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      /* 내용 부분 (처음엔 숨김) */
+      .acc-body {
+        display: none; /* 기본은 숨김 */
+        padding: 15px;
+        border-top: 1px solid #e0d5c5;
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: left;
+        background: #fff;
+      }

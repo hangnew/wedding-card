@@ -1,0 +1,161 @@
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Gowun Batang", serif;
+}
+
+/* 2. 메인 컨테이너 (여기가 핵심!) */
+.main-wrapper {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  table-layout: fixed; /* 테이블 너비 고정 */
+}
+
+/* 3. 왼쪽 에디터 (가로 350px 고정) */
+.editor-section {
+  display: table-cell;
+  width: 400px;
+  background-color: #f8f9fa;
+  vertical-align: top;
+  border-right: 1px solid #ddd;
+}
+
+.sub-title {
+  font-size: 10px;
+  color: #959595;
+  padding-left: 10px;
+}
+
+.editor-menu {
+  font-family: "Gowun Batang", serif;
+  padding: 10px;
+  padding-bottom: 20px;
+  font-size: 10px;
+  color: #959595;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background-color: #f8f9fa;
+  width: 100%;
+  text-align: left;
+  line-height: 10px;
+  cursor: pointer;
+}
+
+.editor-submenu {
+  padding-top: 10px;
+  background-color: #f3f0ed;
+  color: #959595;
+}
+
+.headings {
+    color : #111;
+    font-weight: bold;
+    font-size : 12px;
+    padding-left: 10px;
+}
+
+.btn-upload {
+    width: 90%;
+    height: 150px;
+    border: 1px dashed #ddd;
+    margin-bottom: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:hover {
+        border: 1px dashed #000;
+    }
+}
+
+.layout-btn {
+    font-family: "Gowun Batang", serif;
+    font-size : 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color : white;
+}
+
+/* 선택된 버튼 스타일 */
+.active-btn {
+    background-color: #333 !important;
+    color: white !important;
+}
+
+/* 4. 오른쪽 프리뷰 (나머지 전체) */
+.preview-section {
+  display: table-cell;
+  background-color: #f3f0ed;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* 폰 프레임 디자인 */
+.phone {
+  display: inline-block;
+  width: 280px;
+  height: 580px;
+  background: #fffaf5;
+  border-radius: 50px;
+  border: 6px solid #222;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#item-name, #item-date {
+    opacity: 0;
+    transform: translateY(20px);
+    transition : none;
+}
+
+#mainTitle {
+    white-space : pre-wrap;
+    word-wrap: break-word;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.font-black {
+    color: #333;
+}
+
+.hide {
+    display : none;
+}
+
+.show {
+    display: block;
+}
+
+.fade-in {
+    animation : fadeInUp 0.5s ease-out forwards;
+}
+
+.layoutCenter {
+    text-align : center;
+}
+
+.layoutLeft {
+    text-align : left;
+    margin-left: 30px;
+}
+
+.layoutRight {
+    text-align : right;
+    margin-right: 30px;
+}
