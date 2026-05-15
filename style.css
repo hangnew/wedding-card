@@ -6,6 +6,21 @@
   --accent-gold: #c5a368; /* 포인트 컬러 골드 */
 }
 
+img {
+  /* 드래그 방지 */
+  -webkit-user-drag: none;
+
+  /* 꾹 눌러서 저장 메뉴 뜨는 거 방지 (iOS Safari) */
+  -webkit-touch-callout: none;
+
+  /* 텍스트나 이미지 선택 방지 */
+  -webkit-user-select: none;
+  user-select: none;
+
+  /* 마우스 우클릭 방지 (일부 브라우저) */
+  -webkit-tap-highlight-color: transparent; /* 터치 시 반짝임 방지 */
+}
+
 .no-drag {
   -webkit-user-select: none; /* iOS Safari, Chrome */
   -moz-user-select: none; /* Firefox */
@@ -20,7 +35,7 @@
 .stop-scroll {
   height: 100%;
   overflow: hidden;
-  touch-action : none;
+  touch-action: none;
 }
 
 .lighterbg {
