@@ -28,7 +28,7 @@
           <p class="names">에드 & 벨라</p>
           <p class="sub-info">2026년 9월 13일, 오후 3시<br />더세인트</p>
         </div>
-        <div class="arch-image top-image">
+        <div class="arch-image top-image no-drag">
           <img src="photos/main_photo.jpg" alt="Wedding Photo" />
         </div>
       </section>
@@ -104,22 +104,22 @@
           <h2 class="eng-sub">Gallery</h2>
           <div class="gallery-grid">
             <div class="item" onclick="openModal(0)">
-              <img src="photos/img1.jpeg" alt="" />
+              <img src="photos/img1.jpeg" alt="" class="no-drag"/>
             </div>
             <div class="item" onclick="openModal(1)">
-              <img src="photos/img2.jpg" alt="" />
+              <img src="photos/img2.jpg" alt=""  class="no-drag"/>
             </div>
             <div class="item" onclick="openModal(2)">
-              <img src="photos/img3.jpg" alt="" />
+              <img src="photos/img3.jpg" alt=""  class="no-drag"/>
             </div>
             <div class="item" onclick="openModal(3)">
-              <img src="photos/img4.jpg" alt="" />
+              <img src="photos/img4.jpg" alt=""  class="no-drag"/>
             </div>
             <div class="item" onclick="openModal(4)">
-              <img src="photos/img5.jpg" alt="" />
+              <img src="photos/img5.jpg" alt=""  class="no-drag"/>
             </div>
             <div class="item" onclick="openModal(5)">
-              <img src="photos/img6.jpg" alt="" />
+              <img src="photos/img6.jpg" alt=""  class="no-drag"/>
               <div class="more-overlay">
                 <span class="plus-num">+2</span>
                 <span class="more-text">MORE</span>
@@ -136,9 +136,9 @@
 
           <div class="modal-content">
             <div id="imageTrack" class="image-track">
-              <img id="prevImg" src="" alt="" class="slide-img" />
-              <img id="currImg" src="" alt="" class="slide-img" />
-              <img id="nextImg" src="" alt="" class="slide-img" />
+              <img id="prevImg" src="" alt="" class="slide-img" class="no-drag" />
+              <img id="currImg" src="" alt="" class="slide-img" class="no-drag" />
+              <img id="nextImg" src="" alt="" class="slide-img" class="no-drag" />
             </div>
 
             <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
