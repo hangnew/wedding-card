@@ -8,9 +8,14 @@
     />
     <title>Our Wedding Day</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- Google Fonts: 세리프체와 산세리프체 조합 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+KR:wght@300;400&family=Noto+Sans+KR:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Serif+Display:ital,wght@0,100;1,100&display=swap"
       rel="stylesheet"
     />
     <!-- Font Awesome CDN Link -->
@@ -24,8 +29,8 @@
       <!-- 1. 메인 화면 -->
       <section class="main">
         <div class="main-info delay-1s" style="padding-bottom: 30px">
-          <h1 class="eng-title">WEDDING DAY.</h1>
-          <p class="names">에드 & 벨라</p>
+          <p class="eng-title">WEDDING DAY</p>
+          <p class="names">유수재 & 이윤채</p>
           <p class="sub-info">2026년 9월 13일, 오후 3시<br />더세인트</p>
         </div>
         <div class="arch-image top-image no-drag">
@@ -34,29 +39,32 @@
       </section>
 
       <div class="lighterbg">
-        <!-- 3 & 4. 혼주 정보 -->
-        <section class="family section-padding-double">
+        <!-- 2. 초대 문구 -->
+        <section class="invitation section-padding eng-sub">
+          Join us <br />
+          for our wedding
+        </section>
+
+        <!-- 3. 혼주 정보 -->
+        <section class="family section-padding-half">
           <div class="family-line">
             <p>
-              <strong class="point">칼라일 · 에스미</strong>
-              <span class="msg">의 아들</span>
-              <strong class="point">에드워드</strong>
+              <strong>유광열 · 정명희</strong>
+              <span class="family-msg">의 아들</span>
+              <strong>수재</strong>
             </p>
             <p>
-              <strong class="point">찰리 · 르네</strong>
-              <span class="msg">의 딸</span>
-              <strong class="point">이사벨라</strong>
+              <strong>이흥복 · 박정민</strong>
+              <span class="family-msg">의 딸</span>
+              <strong>윤채</strong>
             </p>
           </div>
         </section>
 
-        <!-- 2. 초대 문구 -->
+        <!-- 4. 초대 문구 -->
         <section class="invitation section-padding">
-          <h2 class="eng-sub">
-            Join us <br />
-            for our wedding
-          </h2>
-          <p class="msg section-padding-double">
+          <p class="ivt">INVITATION</p>
+          <p class="ivt-msg section-top-padding">
             서로가 마주 보며 다져온 사랑을<br />
             이제 함께 한 곳을 바라보며 걸어가려 합니다.<br />
             저희 두 사람의 새로운 시작을<br />
@@ -66,15 +74,18 @@
         </section>
 
         <!-- 5. 달력 -->
-        <section class="calendar-section section-padding">
-          <h2>2026.09.13</h2>
-          <p class="msg">일요일 오후 3시</p>
+        <section class="calendar-section section-padding-half">
+          <p class="calendar-title">2026.09.13</p>
+          <p class="calendar-sub">일요일 오후 3시</p>
           <div class="calendar-mock section-top-padding">
             <div
               class="calendar-container"
               style="
-                border-top: 1px solid rgba(255, 255, 255, 0.3);
-                padding-top: 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                padding-top: 40px;
+                width: 420px;
+                margin-left: auto;
+                margin-right: auto;
               "
             >
               <div class="calendar-days msg">
@@ -99,67 +110,27 @@
           </div>
         </section>
 
-        <!-- 6. 갤러리 -->
-        <section class="gallery-section section-padding">
-          <h2 class="eng-sub">Gallery</h2>
-          <div class="gallery-grid">
-            <div class="item" onclick="openModal(0)">
-              <img src="photos/img1.jpeg" alt="" class="no-drag"/>
-            </div>
-            <div class="item" onclick="openModal(1)">
-              <img src="photos/img2.jpg" alt=""  class="no-drag"/>
-            </div>
-            <div class="item" onclick="openModal(2)">
-              <img src="photos/img3.jpg" alt=""  class="no-drag"/>
-            </div>
-            <div class="item" onclick="openModal(3)">
-              <img src="photos/img4.jpg" alt=""  class="no-drag"/>
-            </div>
-            <div class="item" onclick="openModal(4)">
-              <img src="photos/img5.jpg" alt=""  class="no-drag"/>
-            </div>
-            <div class="item" onclick="openModal(5)">
-              <img src="photos/img6.jpg" alt=""  class="no-drag"/>
-              <div class="more-overlay">
-                <span class="plus-num">+2</span>
-                <span class="more-text">MORE</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <div id="galleryModal" class="modal">
-          <div class="modal-header">
-            <div class="couple-name">에드<br />벨라</div>
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-          </div>
-
-          <div class="modal-content">
-            <div id="imageTrack" class="image-track">
-              <img id="prevImg" src="" alt="" class="slide-img" class="no-drag" />
-              <img id="currImg" src="" alt="" class="slide-img" class="no-drag" />
-              <img id="nextImg" src="" alt="" class="slide-img" class="no-drag" />
-            </div>
-
-            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-            <button class="next" onclick="changeSlide(1)">&#10095;</button>
-          </div>
-
-          <div class="modal-footer">
-            <span id="imgCounter">01 / 08</span>
-            <span class="gallery-label">GALLERY</span>
-          </div>
-        </div>
-
-        <!-- 7. 오시는 길 -->
+        <!-- 6. 오시는 길 -->
         <section class="location-section section-padding">
-          <h2 class="eng-sub">Location</h2>
-          <h3>더세인트</h3>
-          <p class="msg">
-            서울 구로구 경인로 662 6층 그랜드블룸 홀<br />
-            02-2211-2401
+          <p class="ivt">LOCATION</p>
+          <p class="guide-title">더 세인트</p>
+          <p class="guide-text">
+            서울특별시 구로구 경인로 662 디큐브시티<br />
+            6층 그랜드볼룸 홀<br />
           </p>
-          <div id="map" class="map-area"></div>
+          <p class="guide-text" style="padding-top: 10px">02-2211-2400</p>
+
+          <div class="map-wrapper">
+            <div
+              id="map"
+              class="map-area"
+              style="width: 100%; height: 250px"
+            ></div>
+            <div id="map-overlay" onclick="unlockMap()">
+              <span id="map-icon"><i class="fa-solid fa-lock"></i></span>
+              <span id="map-msg">터치하여 지도 보기</span>
+            </div>
+          </div>
 
           <div class="nav-btns">
             <button>
@@ -168,61 +139,156 @@
             <button>카카오맵 <i class="fa-solid fa-location-arrow"></i></button>
             <button>T맵 <i class="fa-solid fa-location-arrow"></i></button>
           </div>
-          <div class="guide-text section-padding-half">
-            <p><strong>[지하철]</strong><br />지하철 이용 안내</p>
-            <p class="section-padding-half">
-              <strong>[주차 안내]</strong><br />주차 공간 및 이용 안내
+          <div class="guide-text guide-padding">
+            <p>
+              <strong>[지하철]</strong><br />
+              신도림역 1번출구에서 왼쪽 지하도로 연결
             </p>
+            <div class="bus-section">
+              <strong class="bus-title">[버스]</strong>
+
+              <div class="bus-container">
+                <div class="bus-row">
+                  <span class="bus-type">지선(녹색)</span>
+                  <span class="bus-divider">|</span>
+                  <span class="bus-numbers"
+                    >5615, 5714, 6512, 6513, 6515, 6516, 6637, 6640B</span
+                  >
+                </div>
+
+                <div class="bus-row">
+                  <span class="bus-type">간선(파랑)</span>
+                  <span class="bus-divider">|</span>
+                  <span class="bus-numbers">160, 503, 600, 660, 662</span>
+                </div>
+
+                <div class="bus-row">
+                  <span class="bus-type">기타</span>
+                  <span class="bus-divider">|</span>
+                  <span class="bus-numbers"
+                    >301, 320, 10, 11-1, 11-2(일반), 83, 88, 510, 530, 662,
+                    6018, N16, 구로09(마을), 양천04(마을)</span
+                  >
+                </div>
+              </div>
+            </div>
+            <p class="guide-padding">
+              <strong>[주차 안내]</strong><br />
+              3시간 무료 주차
+            </p>
+          </div>
+        </section>
+
+        <!-- 8. 화환 -->
+        <section class="invitation section-padding">
+          <p class="ivt-msg section-top-padding">
+            화환은 정중히 사양합니다.<br />
+            축하의 마음만 감사히 받겠습니다.
+          </p>
+        </section>
+
+        <!-- 9. 계좌 번호 -->
+        <section class="account-section section-padding">
+          <p class="ivt">ACCOUNT</p>
+          <p class="ivt-msg" style="padding: 20px;">마음 전하실 곳</p>
+          <div class="acc-wrap">
+            <button class="acc-toggle" onclick="toggleAcc('groom')">
+              <span>신랑측 계좌번호</span>
+              <span><i class="fa-solid fa-angle-down"></i></span>
+            </button>
+            <div id="groom" class="acc-content copy-section-container">
+              <div class="copy-text-group">
+                <h4>예금주</h4>
+                <p class="msg" style="font-size: 12px">
+                  신랑은행 123-456-789100
+                </p>
+              </div>
+              <button
+                class="copy-button"
+                onclick="copyToClipboard('신랑은행 123-456-789100')"
+              >
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <button class="acc-toggle" onclick="toggleAcc('bride')">
+              <span>신부측 계좌번호</span>
+              <span><i class="fa-solid fa-angle-down"></i></span>
+            </button>
+            <div id="bride" class="acc-content copy-section-container">
+              <div class="copy-text-group">
+                <h4>예금주</h4>
+                <p class="msg" style="font-size: 12px">
+                  신부은행 109-876-543210
+                </p>
+              </div>
+              <button
+                class="copy-button"
+                onclick="copyToClipboard('신부은행 109-876-543210')"
+              >
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
           </div>
         </section>
       </div>
 
-      <!-- 8. 계좌 번호 -->
-      <section class="account-section section-padding">
-        <h2 class="eng-sub">ACCOUNT</h2>
-        <p class="msg">마음 전하실 곳</p>
-        <div class="acc-wrap section-padding-half">
-          <button class="acc-toggle" onclick="toggleAcc('groom')">
-            <span>신랑측 계좌번호</span>
-            <span><i class="fa-solid fa-angle-down"></i></span>
-          </button>
-          <div id="groom" class="acc-content copy-section-container">
-            <div class="copy-text-group">
-              <h4>칼라일</h4>
-              <p class="msg" style="font-size: 12px">라일은행 123-456-789100</p>
-            </div>
-            <button
-              class="copy-button"
-              onclick="copyToClipboard('신랑은행 123-456-789100')"
-            >
-              <i class="fa-regular fa-copy"></i>
-            </button>
+      <!-- 10. 갤러리 -->
+      <section class="gallery-section section-padding">
+        <p class="ivt" style="margin-bottom: 20px;">GALLERY</p>
+        <div class="gallery-grid">
+          <div class="item" onclick="openModal(0)">
+            <img src="photos/img1.jpeg" alt="" class="no-drag" />
           </div>
-
-          <button class="acc-toggle" onclick="toggleAcc('bride')">
-            <span>신부측 계좌번호</span>
-            <span><i class="fa-solid fa-angle-down"></i></span>
-          </button>
-          <div id="bride" class="acc-content copy-section-container">
-            <div class="copy-text-group">
-              <h4>예금주</h4>
-              <p class="msg" style="font-size: 12px">신부은행 109-876-543210</p>
+          <div class="item" onclick="openModal(1)">
+            <img src="photos/img2.jpg" alt="" class="no-drag" />
+          </div>
+          <div class="item" onclick="openModal(2)">
+            <img src="photos/img3.jpg" alt="" class="no-drag" />
+          </div>
+          <div class="item" onclick="openModal(3)">
+            <img src="photos/img4.jpg" alt="" class="no-drag" />
+          </div>
+          <div class="item" onclick="openModal(4)">
+            <img src="photos/img5.jpg" alt="" class="no-drag" />
+          </div>
+          <div class="item" onclick="openModal(5)">
+            <img src="photos/img6.jpg" alt="" class="no-drag" />
+            <div class="more-overlay">
+              <span class="plus-num">+2</span>
+              <span class="more-text">MORE</span>
             </div>
-            <button
-              class="copy-button"
-              onclick="copyToClipboard('신부은행 109-876-543210')"
-            >
-              <i class="fa-regular fa-copy"></i>
-            </button>
           </div>
         </div>
       </section>
 
-      <!-- 9. 공유 -->
+      <div id="galleryModal" class="modal">
+        <div class="modal-header">
+          <div class="couple-name">수재<br />윤채</div>
+          <span class="close-btn" onclick="closeModal()">&times;</span>
+        </div>
+
+        <div class="modal-content">
+          <div id="imageTrack" class="image-track">
+            <img id="prevImg" src="" alt="" class="slide-img" class="no-drag" />
+            <img id="currImg" src="" alt="" class="slide-img" class="no-drag" />
+            <img id="nextImg" src="" alt="" class="slide-img" class="no-drag" />
+          </div>
+
+          <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+          <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="modal-footer">
+          <span id="imgCounter">01 / 08</span>
+          <span class="gallery-label">GALLERY</span>
+        </div>
+      </div>
+
+      <!-- 11. 공유 -->
       <section class="share-section section-padding">
-        <div class="section-line" style="width: 100px"></div>
-        <h2 class="eng-sub">SHARE</h2>
-        <p class="msg">소중한 분들에게 전해주세요</p>
+        <p class="ivt">SHARE</p>
+        <p class="ivt-msg" style="margin-top: 20px;">소중한 분들에게 전해주세요</p>
         <div class="share-grid">
           <!-- 카카오톡 -->
           <div class="share-item">
@@ -398,15 +464,32 @@
             var container = document.getElementById("map");
             var options = {
               center: new kakao.maps.LatLng(37.508628, 126.888765),
-              level: 3,
+              level: 4,
             };
             var map = new kakao.maps.Map(container, options);
+
+            // 지도 이동, 확대/축소 막기
+            map.setDraggable(false);
+            map.setZoomable(false);
+
+            function unlockMap() {
+              // 터치 시 지도 이동, 확대/축소 풀어주기
+              map.setDraggable(true);
+              map.setZoomable(true);
+              // 오버레이 버튼 숨기기
+              const overlay = document.getElementById("map-overlay");
+              overlay.classList.add("hide");
+            }
 
             // 마커 추가
             var marker = new kakao.maps.Marker({
               position: new kakao.maps.LatLng(37.508628, 126.888765),
             });
             marker.setMap(map);
+
+            kakao.maps.event.addListener(map, "click", function (mouseEvent) {
+              unlockMap();
+            });
           });
         } else {
           // 아직 로드가 안 됐다면 0.1초 뒤에 다시 시도 (재귀호출)
