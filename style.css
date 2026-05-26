@@ -105,7 +105,7 @@ body {
 /* 영문 타이틀 스타일 */
 .eng-title {
   font-family: "Noto Serif Display", serif;
-  font-size: 62px;
+  font-size: 50px;
 }
 .eng-sub {
   font-family: "Noto Serif Display", serif;
@@ -132,7 +132,7 @@ body {
   opacity: 0.8;
 }
 .arch-image {
-  width: 480px;
+  width: 420px;
   aspect-ratio: 1 / 1.1;
   border-top-left-radius: 250px;
   border-top-right-radius: 250px;
