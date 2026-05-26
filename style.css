@@ -132,7 +132,7 @@ body {
   opacity: 0.8;
 }
 .arch-image {
-  width: 420px;
+  max-width: 380px;
   aspect-ratio: 1 / 1.1;
   border-top-left-radius: 250px;
   border-top-right-radius: 250px;
@@ -256,7 +256,7 @@ body {
   justify-content: center;
   margin: 0 auto;
   width: 100%;
-  max-width: 480px;
+  max-width: 380px;
 }
 
 .gallery-grid {
@@ -405,7 +405,7 @@ body {
 
 .map-wrapper {
   position: relative;
-  width: 480px;
+  width: 380px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -440,7 +440,7 @@ body {
 }
 
 .nav-btns {
-  max-width: 480px;
+  max-width: 380px;
   padding: 30px 30px;
   display: flex;
   gap: 15px;
@@ -498,7 +498,7 @@ body {
   flex-direction: column;
   gap: 10px; /* 줄과 줄 사이 간격 */
   text-align: left; /* 정중앙에 모여서 내부 글자는 왼쪽 정렬 */
-  max-width: 480px; /* 폰 화면 안 삐져나가게 락 */
+  max-width: 380px; /* 폰 화면 안 삐져나가게 락 */
 }
 
 .bus-row {
@@ -537,7 +537,7 @@ body {
   display: flex;
   justify-content: space-between; /* 왼쪽과 오른쪽 끝으로 밀어냄 */
   align-items: center; /* 세로 기준 중앙 정렬 */
-  width: 480px;
+  width: 380px;
   padding: 20px 15px;
   border: none;
   background: none;
